@@ -17,6 +17,10 @@ import java.util.Scanner;
 public class HttpService extends AsyncTask<Void,Void,CEP> {
     private  final String cep;
 
+    public HttpService(String cep){
+        this.cep = cep;
+    }
+
     @Override
     protected CEP doInBackground(Void... voids) {
         StringBuilder resposta = new StringBuilder();
@@ -48,8 +52,6 @@ public class HttpService extends AsyncTask<Void,Void,CEP> {
         return new Gson().fromJson(resposta.toString(), CEP.class);
     }
 
-    public HttpService(String cep){
-        this.cep = cep;
-    }
+
 }
 
